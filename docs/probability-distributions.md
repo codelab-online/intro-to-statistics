@@ -59,8 +59,8 @@ Example:
 Put simply, `dbinom` finds the **probability of getting a certain number of successes (x) in a certain number of trials (size) where the probability of success on each trial is fixed (prob)**.  
 
 ``` R
-#find the probability of 10 successes during 12 trials where the probability of
-#success on each trial is 0.6
+# find the probability of 10 successes during 12 trials where the probability of
+# success on each trial is 0.6
 dbinom(x=10, size=12, prob=.6)
 # [1] 0.06385228
 ```
@@ -139,4 +139,221 @@ _where_ `n` is the number of trials and `p` is the probability of `success` on e
 
 ## Normal Distribution
 
-## 
+Let X be a continuous random variable. If `X` has a Normal distribution, we write $X \sim Normal (μ, σ)$.  
+
+There is a rough rule to calculate the areas under Normal density curve.  
+    * the area within 1 standard deviation of the mean is 68%
+    * the area within 2 standard deviation of the mean is 95% 
+    * the area within 3 standard deviation of the mean is 97%  
+
+The area under the Normal density curve is 1.  
+
+$$
+\begin{align*}
+    X &\sim Normal(\mu, \sigma) \\
+    Z &= \frac{X−\mu}{\sigma} \\
+    Z &\sim Normal(0, 1)
+\end{align*}
+$$
+
+The Normal Distribution  
+
+Description  
+
+Density, distribution function, quantile function and random generation for the normal distribution with mean equal to mean and standard deviation equal to sd.  
+
+Usage:  
+``` R
+dnorm(x, mean = 0, sd = 1, log = FALSE)
+pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+qnorm(p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+rnorm(n, mean = 0, sd = 1)
+```
+
+Arguments  
+
+| Arguments | Description |
+|-----------|-------------|
+| x, q | vector of quantiles. |
+| p	| vector of probabilities. |
+| n	| number of observations. If length(n) > 1, the length is taken to be the number required. |
+| mean | vector of means. |
+| sd |	 vector of standard deviations. |
+| log, log.p | logical; if TRUE, probabilities p are given as log(p). |
+| lower.tail | logical; if TRUE (default), probabilities are $P[X \le x]$  otherwise, $P[X > x]$. |  
+
+### `dnorm(x, mean, sd)`
+``` R
+dnorm(x, mean = 0, sd = 1, log = FALSE)
+```
+
+* The function dnorm returns the value of the probability density function (pdf) of the normal distribution given a certain random variable x, a population mean μ and population standard deviation σ. The syntax for using dnorm is as follows:  
+* **Essentially gives the height of the probability density function at the value `x`**
+* Usally not used, but `pnorm` and `qnorm` are more often used.  
+* The following code illustrates a few examples of dnorm in action:  
+``` R
+#find the value of the standard normal distribution pdf at x=0
+dnorm(x=0, mean=0, sd=1)
+# [1] 0.3989423
+
+#by default, R uses mean=0 and sd=1
+dnorm(x=0)
+# [1] 0.3989423
+
+#find the value of the normal distribution pdf at x=10 with mean=20 and sd=5
+dnorm(x=10, mean=20, sd=5)
+# [1] 0.01079819
+```
+
+### `pnorm(q, mean, sd)`
+``` R
+pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+```  
+
+* The function pnorm returns the value of the cumulative density function (cdf) of the normal distribution given a certain random variable q, a population mean μ and population standard deviation σ. The syntax for using pnorm is as follows:  
+* Put simply, **pnorm returns the area to the left of a given value x in the normal distribution**. If you’re interested in the **area to the right of a given value q, you can simply add the argument lower.tail = FALSE** `pnorm(q, mean, sd, lower.tail = FALSE)`.
+* The following examples illustrates how to solve some probability questions using pnorm.  
+
+Suppose the height of males at a certain school is normally distributed with a mean of μ=70 inches and a standard deviation of σ = 2 inches. Approximately what percentage of males at this school are taller than 74 inches?  
+
+**Values Greater than a Number**
+``` R
+# find percentage of males that are taller than 74 inches in a population with
+# mean = 70 and sd = 2
+pnorm(74, mean=70, sd=2, lower.tail=FALSE)
+
+# [1] 0.02275013
+```
+**Values Less than a Number**
+``` R
+# Additionally and unrelated to the data set above
+# find percentage of otters that weight less than 22 lbs in a population with
+# mean = 30 and sd = 5
+pnorm(22, mean=30, sd=5)
+
+# [1] 0.05479929
+```
+
+**Values Between Two Numbers**
+``` R
+# Percentage with values between two points
+# find percentage of plants that are less than 14 inches tall, then subtract the
+# percentage of plants that are less than 10 inches tall, based on a population
+# with mean = 13 and sd = 2
+pnorm(14, mean=13, sd=2) - pnorm(10, mean=13, sd=2)
+
+# [1] 0.6246553
+```
+
+### `qnorm(p, mean, sd)`
+``` R
+qnorm(p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+```
+
+* The function qnorm returns the value of the inverse cumulative density function (cdf) of the normal distribution given a certain random variable p, a population mean μ and population standard deviation σ. 
+* The syntax for using qnorm is as follows:  
+* Put simply, you can **use qnorm to find out what the Z-score is of the $p^{th}$ quantile of the normal distribution**.  
+
+``` R
+#find the Z-score of the 99th quantile of the standard normal distribution 
+qnorm(.99, mean=0, sd=1)
+# [1] 2.326348
+
+#by default, R uses mean=0 and sd=1
+qnorm(.99)
+# [1] 2.326348
+
+#find the Z-score of the 95th quantile of the standard normal distribution 
+qnorm(.95)
+# [1] 1.644854
+
+#find the Z-score of the 10th quantile of the standard normal distribution 
+qnorm(.10)
+# [1] -1.281552
+```
+
+### `rnorm(n, mean, sd)`
+``` R
+rnorm(n, mean = 0, sd = 1)
+```
+* The function rnorm generates a vector of normally distributed random variables given a vector length `n`, a population mean$\mu$ and population standard deviation $\sigma$. 
+
+``` R
+#generate a vector of 5 normally distributed random variables with mean=10 and sd=2
+five <- rnorm(5, mean = 10, sd = 2)
+five
+# [1] 10.658117 8.613495 10.561760 11.123492 10.802768
+
+#generate a vector of 1000 normally distributed random variables with mean=50 and sd=5
+narrowDistribution <- rnorm(1000, mean = 50, sd = 15)
+
+#generate a vector of 1000 normally distributed random variables with mean=50 and sd=25
+wideDistribution <- rnorm(1000, mean = 50, sd = 25)
+
+#generate two histograms to view these two distributions side by side, specify
+#50 bars in histogram and x-axis limits of -50 to 150
+par(mfrow=c(1, 2)) #one row, two columns
+hist(narrowDistribution, breaks=50, xlim=c(-50, 150)) 
+hist(wideDistribution, breaks=50, xlim=c(-50, 150))
+```
+
+### Poputation vs Sample Standard Deviation
+
+$$
+\begin{align*}
+    sd(\overline{X}) &= \frac{\sigma}{\sqrt{n}} \\
+    \sigma &= sd(\overline{X}) \cdot \sqrt{n}
+\end{align*}
+$$
+where, `n` is the sample size.  
+ 
+If $X \sim Normal(\mu, \sigma)$:  
+
+$$
+\begin{align*}
+    Z &= \frac{X−\mu}{\sigma} \\
+    Z \sim Normal(0, 1) \\
+\end{align*}
+$$
+
+The distribution of sample means ($\overline{X}$):  
+
+$$
+\begin{align*}
+    \overline{X} &\sim Normal(\mu, \frac{\sigma}{\sqrt{n}}) \\
+    Z &= \frac{X - \mu}{\frac{\sigma}{\sqrt{n}}} \\
+    Z &\sim Normal(0, 1)
+\end{align*}
+$$
+
+This is true even if the population is not normally distributed for sufficiently large `n` sample size, **_Central Limit Theorem_** applies and the sample behaves like a normally distributed sample.  
+
+## Sampling Distribution of the Sample Proportions
+
+* The sample proportion ($\^{p}$)
+* Again, consider our height of STAT1201 students. 
+* Now define `p` as the population proportion of students whose height is less than or equal to 155cm.
+* Following similar steps like we did for the sampling distribution of the sample mean we can find the distribution of the sample proportion.
+
+$$
+\^{p} = \frac{x}{n}
+$$  
+
+where `x` is the number of students in the sample whose height is less than or equal to 155cm.  
+
+* If all possible samples of size `n` are selected from a binomial distribution, We can show that:  
+    * $\mathbb{E}(\^{p}) = p$
+    * sd$(\^{p}) = \sqrt{\frac{p \ (1-p)}{n}}$  
+
+# Summary
+## Binomial Distribution
+### [Find the probability of `x` successes in `n` trials with `p` probability of success on each trial](/probability-distributions#dbinomx-size-prob)
+### [Find the probability of `x` successes between 2 values, less than a value, or greated than a value in `n` trials with `p` probability of success on each trial](/probability-distributions#pbinomq-size-prob)
+### [Find what discrete value `x` has a `q` probability of happening in `n` trials with `p` probability of success on each trial](/probability-distributions#qbinomq-size-prob)
+### [Generate vector of `n` values from a binomial distribution, `size` trials and `prob` chance of success](/probability-distributions#rbinomn-size-prob)
+## Normal Distribution
+### [Finding percent of values less than or greated than a number and between 2 numbers](/probability-distributions#pnormq-mean-sd)
+### [Finding the Z-value of a number, given $\mu$ and $\sigma$](/probability-distributions#qnormp-mean-sd)
+### [Generate vector of `n` values from a normal distribution, with $\mu$ and $\sigma$](/probability-distributions#rnormn-mean-sd)
+## Distribution of Proportion Variables
+### [Sample mean and standard deviation for proportion values](/probability-distributions#sampling-distribution-of-the-sample-proportions)
