@@ -371,7 +371,7 @@ where `x` is the number of students in the sample whose height is less than or e
 ### [Find what discrete value `x` has a `q` probability of happening in `n` trials with `p` probability of success on each trial](/probability-distributions#qbinomq-size-prob)
 ### [Generate vector of `n` values from a binomial distribution, `size` trials and `prob` chance of success](/probability-distributions#rbinomn-size-prob)
 ## Normal Distribution
-### [Finding percent of values less than or greated than a number and between 2 numbers](/probability-distributions#pnormq-mean-sd)
+### [Finding percent of values less than or greater than a number and between 2 numbers](/probability-distributions#pnormq-mean-sd)
 ### [Finding the Z-value of a number, given $\mu$ and $\sigma$](/probability-distributions#qnormp-mean-sd)
 ### [Generate vector of `n` values from a normal distribution, with $\mu$ and $\sigma$](/probability-distributions#rnormn-mean-sd)
 ## Distribution of Proportion Variables
