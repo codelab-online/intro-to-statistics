@@ -1,12 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 # Home page : Introduction
-
-[Download the PDF version of this site.](https://raw.githubusercontent.com/codelab-online/compsys/ebooks/stats.codelib.online.pdf)
-<embed src="https://raw.githubusercontent.com/codelab-online/compsys/ebooks/stats.codelib.online.pdf" class="application/pdf" width="1400px" height="1400px" />
-
 
 # Hypothesis Testing
 
