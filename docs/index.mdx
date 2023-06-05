@@ -1,0 +1,22 @@
+---
+sidebar_position: 1
+---
+
+# Statistics PDF Ebook
+
+export const pdfURL = "https://raw.githubusercontent.com/codelab-online/intro-to-statistics/ebooks/stats.codelib.online.pdf?" + Date.now();
+
+export const PDF = ({children, url}) => (
+  <embed 
+    src={url}
+    class="application/pdf" 
+    width="1400px" 
+    height="1400px" />
+);
+
+[Download the PDF version of this site.](https://raw.githubusercontent.com/codelab-online/intro-to-statistics/ebooks/stats.codelib.online.pdf)
+
+<!-- old version -->
+<!-- <embed src="https://raw.githubusercontent.com/codelab-online/intro-to-statistics/ebooks/stats.codelib.online.pdf" class="application/pdf" width="1400px" height="1400px" /> -->
+
+<PDF url={pdfURL} />
