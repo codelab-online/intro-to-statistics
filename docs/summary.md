@@ -4,7 +4,9 @@ sidebar_position: 2
 
 # Statistics Summary
 
-Let's discover **Introductory Statistics**.
+Let's discover **Introductory Statistics**.  
+
+Most important information / Condensed Information.  
 
 # R Functions Summary : Analysis of Scientific Data
 This sheet gives a summary of the basic functions in R. You can also get more information using help() or ? in R.  
