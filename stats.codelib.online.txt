@@ -2,3 +2,4 @@ https://stats.codelib.online/summary
 https://stats.codelib.online/introduction
 https://stats.codelib.online/randomness-and-probability
 https://stats.codelib.online/probability-distributions
+https://stats.codelib.online/final-notes
