@@ -272,6 +272,25 @@ qnorm(.10)
 # [1] -1.281552
 ```
 
+**VERY IMPORTANT**
+
+**_Find Z-value of a variable x given $\mu$ and $\sigma$_**.
+
+What is the Z-value of a variable with value 132, in a population with $\mu = 100$ and $\sigma = 15$.
+``` R
+# Get the percentage of population below the value.
+# Answer is the percentile rank / score of the value
+percent <- pnorm(132, mean=100, sd=15, lower.tail=TRUE);
+percent
+[1] 0.9835513
+
+# Get the Z-score of a value at the $p^{th}$ percentile in a standard normal distribution
+qnorm(percent)
+[1] 2.133333
+
+# The answer is Z-score of 2.133333 
+```
+
 ### `rnorm(n, mean, sd)`
 ``` R
 rnorm(n, mean = 0, sd = 1)
@@ -348,7 +367,7 @@ where `x` is the number of students in the sample whose height is less than or e
 # Summary
 ## Binomial Distribution
 ### [Find the probability of `x` successes in `n` trials with `p` probability of success on each trial](/probability-distributions#dbinomx-size-prob)
-### [Find the probability of `x` successes between 2 values, less than a value, or greated than a value in `n` trials with `p` probability of success on each trial](/probability-distributions#pbinomq-size-prob)
+### [Find the probability of `x` successes between 2 values, less than a value, or greater than a value in `n` trials with `p` probability of success on each trial](/probability-distributions#pbinomq-size-prob)
 ### [Find what discrete value `x` has a `q` probability of happening in `n` trials with `p` probability of success on each trial](/probability-distributions#qbinomq-size-prob)
 ### [Generate vector of `n` values from a binomial distribution, `size` trials and `prob` chance of success](/probability-distributions#rbinomn-size-prob)
 ## Normal Distribution
