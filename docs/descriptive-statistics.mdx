@@ -31,6 +31,15 @@ summary(mucus)
  3rd Qu.:15.25                     
  Max.   :18.00  
 
+head(mucus)
+  Cells     Group
+1    16 Untreated
+2    17 Untreated
+3    13   Exposed
+4    18 Untreated
+5    11 Untreated
+6    15   Exposed
+
 # Get the five number stats
 fivenum(mucus$Cells)
 #    0 % 25 % 50 % 75 % 100 %
@@ -94,7 +103,7 @@ boxplot(x, ..., range = 1.5, width = NULL, varwidth = FALSE,
 boxplot(Cells ~ Group, mucus)
 ```
 
-![Mucus Cell Box Plot](/img/mucus_boxplot.jpeg)
+![Mucus Cell Box Plot](/img/mucus_boxplot.jpeg)[^1]
 
 ## Aggregate
 
@@ -141,3 +150,5 @@ $$
 \end{align*}
 $$
 
+---
+[^1] https://r-coder.com/save-plot-r/#Save_as_image
