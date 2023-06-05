@@ -3,4 +3,5 @@ https://stats.codelib.online/introduction
 https://stats.codelib.online/randomness-and-probability
 https://stats.codelib.online/probability-distributions
 https://stats.codelib.online/descriptive-statistics
+https://stats.codelib.online/statistical-inference
 https://stats.codelib.online/final-notes
