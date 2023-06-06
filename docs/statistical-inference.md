@@ -154,6 +154,7 @@ qnorm(0.975) * (8/sqrt(16))
 * $\displaystyle MOE = Z^* \frac{\sigma}{\sqrt{n}}$
 * Rearranging: $\displaystyle n = \left(\frac{Z^* \cdot \sigma}{MOE}\right)^2$
 * Thus, $\displaystyle n = \left( \frac{1.959964 * 8}{2} \right)^2$
+
 ``` R
 ((qnorm(0.975) * 8)/2)^2
 [1] 61.46334

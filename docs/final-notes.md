@@ -4,6 +4,38 @@ sidebar_position: 1000
 
 # Final Notes
 
+## Preliminaries
+
+### [P value cut-off](/introduction#the-concept-of-p-value)
+
+### d(test), p(test), q(test), r(test)
+* d(test): used to get the value of the graph at that `x` value
+    * For example, in binomial distribution `dbinom(1, 2, 0.5)` will yield `0.5` because there is a `0.5` change of getting 1 success in 2 trials with 0.5 chance of success each time.
+    * In normal distribution `dnorm(0, mean=0, sd=1)` will yield about `0.39`. This is not useful for normal, t, and most distributions except for plotting.
+``` R
+dnorm(0, mean=0, sd=1)
+[1] 0.3989423
+```
+* p(test): `ptest(q, ...)` - uses the probability density function to get the cummulative probability up to the `q` value given. Essentially gives the area under the curve up to `q`.
+    * For example, in binomial distribution, `pbinom(2, 10, 0.5)` gives:
+``` R
+pbinom(2, 10, 0.5)
+[1] 0.0546875
+```
+
+* q(test): `ptest(p, ...)` - reverse cummulative distribution
+    * Gives the z-value or t-value that will contain `p` probability (area under the curve)
+    * In binomial distribution, does the same thing with rounding off.
+
+* r(test): `rtest(n, ...)` - generates a vector of `n` randomly generated values based on the underlying distribution.
+    * `rbinom(3, 10, 0.5)` - generates 3 values with each one a result of random 10 trials with 0.5 change of success.
+    * `rnorm(5, mean=100, sd= 10)` - generates 5 values with each one a result of drawing from a random distribution with mean of 100 and sd of 10.  
+
+#### Examples:
+* Binomial: `dbinom`, `pbinom`, `qbinom`, `rbinom`
+* Normal: `dnorm`, `pnorm`, `qnorm`, `rnorm`
+* T-test: `dt`, `pt`, `qt`, `rt`  
+
 ## Binomial Distribution Summary
 
 ### `dbinom(x, size, prob)`  
