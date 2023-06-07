@@ -116,6 +116,6 @@ mean(results)
 * $X \sim Binom(n, p)$ 
 * $Mean = E(X) = np$ 
 * $Var(X) = np(1-p)$
-* $sd(X) = 𝑛𝑝(1 − 𝑝)$  
+* $sd(X) = \sqrt{𝑛𝑝(1 − 𝑝)}$  
 
 _where_ `n` is the number of trials and `p` is the probability of `success` on each trial.  
